@@ -1,26 +1,35 @@
 import React from "react";
-import { NavLink, Route, Switch, useRouteMatch } from "react-router-dom";
+import { Route, NavLink } from "react-router-dom";
 import Overview from "./Componenets/Overview";
-import DeepOS from "./Componenets/DeepOs";
+import DeepOs from "./Componenets/DeepOs";
 import BuyNow from "./Componenets/BuyNow";
 import Test from "./Componenets/Test";
 
 export default function Laptop() {
-  let { path, url } = useRouteMatch();
-
   return (
     <div>
       <>
         <section>
           <h2>DeepinPro</h2>
         </section>
-        <Test data={url} />
+        <div>
+          <ul>
+            <li>
+              <NavLink to="/Laptop/Overview">Overview</NavLink>
+            </li>
+            <li>
+              <NavLink to="/Laptop/DeepOS">DeepOS</NavLink>
+            </li>
+            <li>
+              <NavLink to="/Laptop/BuyNow">BuyNow</NavLink>
+            </li>
+          </ul>
+        </div>
       </>
-      {/* <Switch>
-        <Route exact path={`${path}/Overview`} component={Overview} />
-        <Route exact path={`${path}/DeepOS`} component={DeepOS} />
-        <Route exact path={`${path}/BuyNow`} component={BuyNow} />
-      </Switch> */}
+
+      <Route path="/Laptop/Overview" component={Overview} />
+      <Route path="/Laptop/DeepOS" component={DeepOs} />
+      <Route path="/Laptop/BuyNow" component={BuyNow} />
     </div>
   );
 }
