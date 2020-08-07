@@ -2,5 +2,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
-    "editor.formatOnType": true
+    "editor.formatOnType": true,
+    "editor.fontSize": 16,
+    "files.autoSaveDelay": 450,
+    "files.autoSave": "afterDelay",
+    "editor.fontFamily": "\"operator mono bold\""
 }
