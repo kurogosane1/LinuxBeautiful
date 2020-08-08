@@ -3,10 +3,13 @@ import { Route, NavLink, useRouteMatch } from "react-router-dom";
 import Overview from "./Componenets/Overview";
 import DeepOs from "./Componenets/DeepOs";
 import BuyNow from "./Componenets/BuyNow";
+import Option1 from "./Componenets/Option1";
+import Option2 from "./Componenets/Option2";
 // import Test from "./Componenets/Test";
 
 export default function Laptop() {
   let { path, url } = useRouteMatch();
+  console.log(path);
 
   return (
     <div>
@@ -17,7 +20,7 @@ export default function Laptop() {
         <div>
           <ul>
             <li>
-              <NavLink to={`${url}/Overview`}>Overview</NavLink>
+              <NavLink to={`${url}`}>Overview</NavLink>
             </li>
             <li>
               <NavLink to={`${url}/DeepOS`}>DeepOS</NavLink>
@@ -29,9 +32,11 @@ export default function Laptop() {
         </div>
       </>
 
-      <Route path={`${path}/Overview`} component={Overview} />
+      <Route exact path={`${path}`} component={Overview} />
       <Route path={`${path}/DeepOS`} component={DeepOs} />
-      <Route path={`${path}/BuyNow`} component={BuyNow} />
+      <Route exact path={`${path}/BuyNow`} component={BuyNow} />
+      <Route exact path={`${path}/BuyNow/Option1`} component={Option1} />
+      <Route exact path={`${path}/BuyNow/Option2`} component={Option2} />
     </div>
   );
 }

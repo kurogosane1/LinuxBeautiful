@@ -1,7 +1,14 @@
 import React from "react";
+import { useRouteMatch, useHistory } from "react-router-dom";
 import VS from "../../../Assets/SVG/DesktopEnv.svg";
 
 export default function BuyNow() {
+  let history = useHistory();
+  let {url } = useRouteMatch();
+  const doThis = (e) => {
+    console.log(url);
+    history.push(`${url}/${e.target.value}`);
+  };
   return (
     <div>
       <div>
@@ -30,7 +37,9 @@ export default function BuyNow() {
           <li>Four Thunderbolt 4 ports</li>
         </ul>
         <div className="">
-          <button>Select</button>
+          <button onClick={doThis} value="Option1">
+            Select
+          </button>
           <span>heart</span>
         </div>
         <div>
@@ -58,7 +67,9 @@ export default function BuyNow() {
           <li>Four Thunderbolt 4 ports</li>
         </ul>
         <div className="">
-         <button>Select</button>
+          <button onClick={doThis} value="Option2">
+            Select
+          </button>
           <span>heart</span>
         </div>
         <div>
