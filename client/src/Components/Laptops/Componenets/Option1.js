@@ -10,7 +10,7 @@ export default function Option1() {
             Core i7 12 core 2.5ghz
             <input type="checkbox" name="1" id="" />
           </span>
-
+          
           <span>
             Core i7 14 core 3.0 ghz
             <input type="checkbox" name="2" id="" />

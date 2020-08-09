@@ -4,21 +4,21 @@ import VS from "../../../Assets/SVG/DesktopEnv.svg";
 
 export default function BuyNow() {
   let history = useHistory();
-  let {url } = useRouteMatch();
+  let { url } = useRouteMatch();
   const doThis = (e) => {
     console.log(url);
     history.push(`${url}/${e.target.value}`);
   };
   return (
-    <div>
-      <div>
-        <h3>15inc DeepinBook</h3>
+    <div className="Options-given">
+      <div className="Options-Heading">
+        <h3>15 inch DeepinBook</h3>
         <span>We're here to help. Feel free to contact us</span>
         <h1>Choose your new DeepinBook</h1>
       </div>
 
       <div className="option-1">
-        <div>
+        <div className="Option-Img">
           <img src={VS} alt="" />
         </div>
         <div>
@@ -48,7 +48,7 @@ export default function BuyNow() {
         </div>
       </div>
       <div className="option-2">
-        <div>
+        <div className="Option-Img">
           <img src={VS} alt="" />
         </div>
         <div>

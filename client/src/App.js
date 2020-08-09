@@ -10,6 +10,7 @@ import Main from "./Components/main/main";
 
 // This is for the CSS
 import "./App.css";
+import { Footer } from "./Footer/Footer";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <InOne />
         </Route>
       </Switch>
+      <Footer className="footer"/>
     </Router>
   );
 }
