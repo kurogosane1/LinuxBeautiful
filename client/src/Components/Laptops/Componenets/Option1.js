@@ -1,72 +1,128 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Option1() {
+  const [ram, setRam] = useState([
+    {
+      id: 1,
+      description: "16gb 2333Mhz RAM",
+    },
+    {
+      id: 2,
+      description: "32gb 2333Mhz RAM",
+    },
+    {
+      id: 3,
+      description: "64gb 2333Mhz RAM",
+    },
+  ]);
+  const [style, setStyle] = useState({
+    style: "empty",
+  });
+
+  // const handleClick = (e) => {
+  //   console.log(e.target.className);
+  //   console.log(e.target.value);
+  //   let value = e.target.value;
+
+  //   return value && style
+  //     ? (e.target.className = "blocked")
+  //     : (e.target.className = "empty");
+  // };
+
+  const doThis = (e) => {
+    e.preventDefault();
+  };
   return (
-      <div>
-          <h2>This is Option 1</h2>
-      <form action="">
+    <div>
+      <h2>This is input 1</h2>
+      <form onSubmit={doThis}>
         <div className="Processor">
-          <span>
-            Core i7 12 core 2.5ghz
-            <input type="checkbox" name="1" id="" />
-          </span>
-          
-          <span>
+          {/* <input value="1" onClick={(e) => console.log(e.target.value + 1)}>
+            Core i7 12 Core 2.5ghz
+          </input> */}
+
+          <label>
             Core i7 14 core 3.0 ghz
-            <input type="checkbox" name="2" id="" />
-          </span>
+            <input type="radio" name="2" id="" />
+          </label>
 
-          <span>
-            Core i9 16 core 2.7ghz <input type="checkbox" name="3" id="" />
-          </span>
+          <label>
+            Core i9 16 core 2.7ghz
+            <input type="radio" name="3" id="" />
+          </label>
 
-          <span>
-            Core-i9 18 core 2.4ghz <input type="checkbox" name="4" id="" />
-          </span>
+          <label>
+            Core-i9 18 core 2.4ghz
+            <input type="radio" name="4" id="" />
+          </label>
         </div>
         <div className="RAM">
-          <span>
-            16gb 2333Mhz RAM <input type="checkbox" name="5" id="" />
-          </span>
+          <input
+            type="radio"
+            value="16gb 2333Mhz RAM"
+            name={1}
+            id={1}
+            // onClick={handleClick}
+            // className={style}
+          >
+            {/* 16gb 2333Mhz RAM */}
+          </input>
 
-          <span>
-            32gb 2333Mhz RAM <input type="checkbox" name="6" id="" />
-          </span>
-
-          <span>
-            64gb 2333Mhz RAM <input type="checkbox" name="7" id="" />
-          </span>
+          <input
+            type="radio"
+            value="32gb 2333Mhz RAM"
+            name={2}
+            id={2}
+            // onClick={handleClick}
+            // className={style}
+          >
+            {/* 32gb 2333Mhz RAM */}
+          </input>
+{/* 
+          <input
+            type="radio"
+            value="64gb 2333Mhz RAM"
+            name={3}
+            id={3}
+            // onClick={handleClick}
+            // className={style}
+          >
+            64gb 2333Mhz RAM
+          </input> */}
         </div>
         <div className="Storage">
-          <span>
+          <label>
             1TB SSD
-            <input type="checkbox" name="8" id="" />
-          </span>
+            <input type="radio" name="8" id="" />
+          </label>
 
-          <span>
+          <label>
             2TB SSD
-            <input type="checkbox" name="9" id="" />
-          </span>
+            <input type="radio" name="9" id="" />
+          </label>
 
-          <span>
+          <label>
             4TB SSD
-            <input type="checkbox" name="10" id="" />
-          </span>
+            <input type="radio" name="10" id="" />
+          </label>
         </div>
         <div className="Graphics">
-          <span>
+          <label>
             Nvidia RTX 3050 with 8GB of GDDR8 memory
-            <input type="checkbox" name="11" id="" />
-          </span>
-          <span>
+            <input type="radio" name="11" id="" />
+          </label>
+          <label>
             Nvidia RTX 3060 with 8GB of GDDR8 memory
-            <input type="checkbox" name="12" id="" />
-          </span>
+            <input type="radio" name="12" id="" />
+          </label>
 
-          <span>
+          <label>
             Nvidia RTX 3060 Super with 16GB of GDDR8 memory
-            <input type="checkbox" name="13" id="" />
-          </span>
+            <input type="radio" name="13" id="" />
+          </label>
+        </div>
+        <div className="check">
+          <input type="submit" value="Buy now"></input>
         </div>
       </form>
     </div>

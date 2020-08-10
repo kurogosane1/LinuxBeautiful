@@ -37,6 +37,19 @@
   justify-self: center;
   /* grid-column-start: 3; */
 }
+.blocked {
+  background-color: grey;
+  list-style: none;
+  border-color: blue;
+  border-radius: 20px;
+  padding: 100px;
+}
+.empty {
+  list-style: none;
+  border-color: grey;
+  border-radius: 10px;
+  padding: 100px;
+}
 
 @media only screen and (max-width: 768px) {
   .Options-given {
