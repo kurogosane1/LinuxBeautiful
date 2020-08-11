@@ -9,8 +9,6 @@ import Option2 from "./Componenets/Option2";
 
 export default function Laptop() {
   let { path, url } = useRouteMatch();
-  console.log(path);
-
   return (
     <div>
       <>

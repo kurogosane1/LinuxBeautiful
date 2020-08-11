@@ -38,17 +38,64 @@
   /* grid-column-start: 3; */
 }
 .blocked {
-  background-color: grey;
-  list-style: none;
-  border-color: blue;
-  border-radius: 20px;
-  padding: 100px;
+  cursor: pointer;
+  padding: 20px;
+  margin: 20px;
+  background-color: rgb(236, 243, 236);
+  align-items: center;
+  font-weight: 300;
+  border: 5px rgb(106, 106, 251) solid;
+  border-radius: 2px;
+  box-shadow: 10px 10px 5px grey;
+  transition: ease-in-out;
 }
 .empty {
   list-style: none;
   border-color: grey;
   border-radius: 10px;
   padding: 100px;
+}
+input[type="radio"] {
+  width: 100%;
+  visibility: hidden;
+  padding: 20px 50px;
+  background-color: rgb(236, 243, 236);
+}
+.spec-list {
+  list-style-type: none;
+}
+.spec-options {
+  cursor: pointer;
+  padding: 20px;
+  margin: 20px;
+  background-color: rgb(236, 243, 236);
+  align-items: center;
+  font-weight: 300;
+}
+
+.opt-cont-1 {
+  width: 40%;
+  margin: auto;
+  display: grid;
+  /* align-items: center; */
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 10px;
+  grid-template-areas: "computer options";
+}
+.opt-col-1 {
+  grid-area: computer;
+  align-items: flex-start;
+}
+
+#opt-1-img {
+  top: 10px;
+  margin-top: 2rem;
+  position: sticky;
+}
+.opt-col-2 {
+  grid-area: options;
+  align-items: center;
 }
 
 @media only screen and (max-width: 768px) {

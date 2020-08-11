@@ -6,7 +6,6 @@ export default function BuyNow() {
   let history = useHistory();
   let { url } = useRouteMatch();
   const doThis = (e) => {
-    console.log(url);
     history.push(`${url}/${e.target.value}`);
   };
   return (
