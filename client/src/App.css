@@ -78,7 +78,7 @@ input[type="radio"] {
   margin: auto;
   display: grid;
   /* align-items: center; */
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   grid-gap: 10px;
   grid-template-areas: "computer options";
@@ -107,5 +107,14 @@ input[type="radio"] {
       "Option1"
       "Option2"
       "Blank";
+  }
+
+  .opt-cont-1 {
+    text-align: center;
+    width: auto;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "computer"
+      "options";
   }
 }

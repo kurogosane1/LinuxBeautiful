@@ -11,7 +11,7 @@ import Main from "./Components/main/main";
 // This is for the CSS
 import "./App.css";
 import { Footer } from "./Footer/Footer";
-
+import Login from "./Components/User/Login";
 
 function App() {
   return (
@@ -30,8 +30,11 @@ function App() {
         <Route path="/AllinOne">
           <InOne />
         </Route>
+        <Route path="/Login">
+          <Login />
+        </Route>
       </Switch>
-      <Footer className="footer"/>
+      <Footer className="footer" />
     </Router>
   );
 }
