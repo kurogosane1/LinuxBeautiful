@@ -12,6 +12,8 @@ import Main from "./Components/main/main";
 import "./App.css";
 import { Footer } from "./Footer/Footer";
 import Login from "./Components/User/Login";
+import Signup from "./Components/User/Signup";
+import Verify from "./Components/User/Verify";
 
 function App() {
   return (
@@ -32,6 +34,12 @@ function App() {
         </Route>
         <Route path="/Login">
           <Login />
+        </Route>
+        <Route path="/signup">
+          <Signup />
+        </Route>
+        <Route path="/passwordverify">
+          <Verify />
         </Route>
       </Switch>
       <Footer className="footer" />

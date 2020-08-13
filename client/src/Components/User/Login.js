@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Login(props) {
   const [user, setUser] = useState({});
@@ -7,9 +7,7 @@ export default function Login(props) {
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
-  const loginAccess = (e) => {
-    
-  };
+  const loginAccess = (e) => {};
 
   return (
     <div>
@@ -42,6 +40,12 @@ export default function Login(props) {
           <input type="submit" value="Sign In" />
         </div>
       </form>
+      <br />
+      <div>
+        <NavLink to="/signup">
+          <label>Don't have a Deep ID? Create one now</label>
+        </NavLink>
+      </div>
     </div>
   );
 }
