@@ -3,16 +3,8 @@ const app = express();
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT | 4000;
 const api = require("./Routes/Router");
-// const mysql = require("mysql");
-const connection = require("./controller/control");
 
-// connection.connect((err) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     console.log(`connected to mysql as ${connection.threadId}`);
-//   }
-// });
+const connection = require("./controller/control");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
