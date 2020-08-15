@@ -2,8 +2,9 @@ const { Sequelize, DataTypes } = require("sequelize");
 const db = require("../controller/Connection");
 const Users = db.define("Users", {
   id: {
-    type: DataTypes.INTEGER,
-    autoIncrement: true,
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4,
+    allowNull: false,
     primaryKey: true,
   },
   firstName: {
@@ -19,7 +20,7 @@ const Users = db.define("Users", {
     allowNull: false,
   },
   date: {
-    type: DataTypes.DATE,
+    type: DataTypes.DATEONLY,
     allowNull: false,
   },
   email: {
@@ -45,5 +46,5 @@ const Users = db.define("Users", {
 });
 
 // console.log(User === sequelize.models.User);
-Users.sync();
+Users.sync({ alter: true });
 module.exports = Users;

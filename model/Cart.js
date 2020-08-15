@@ -49,5 +49,5 @@ const Cart = db.defind("Cart", {
   },
 });
 
-Cart.sync();
+Cart.sync({ force: false });
 module.exports = Cart;

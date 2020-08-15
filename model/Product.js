@@ -42,5 +42,5 @@ const Products = db.define("Products", {
   },
 });
 
-Products.sync();
+Products.sync({ alter: true });
 module.exports = Products;
