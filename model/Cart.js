@@ -1,36 +1,41 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const db = require("../controller/Connection");
-const Users = db.define("Users", {
-  id: {
+
+const Cart = db.defind("Cart", {
+  Cart_id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,
   },
-  firstName: {
+  userID: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: "Users",
+      key: "id",
+    },
+  },
+  Category: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  lastName: {
+  ProdName: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  country: {
+  Processor: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  date: {
-    type: DataTypes.DATE,
-    allowNull: false,
-  },
-  email: {
+  GPU: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  password: {
+  RAM: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  tel: {
+  Storage: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -44,6 +49,5 @@ const Users = db.define("Users", {
   },
 });
 
-// console.log(User === sequelize.models.User);
-Users.sync();
-module.exports = Users;
+Cart.sync();
+module.exports = Cart;
