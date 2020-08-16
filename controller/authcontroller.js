@@ -44,8 +44,9 @@ module.exports.login_post = async (req, res) => {
       return res.status(400).send("Email is not found");
     } else {
       //Create ad assign a token
-      const token = jwt.sign({ id: user.id }, process.env.TOKEN_SECRET);
-      res.header("auth-token", token).send(token);
+      const token = await jwt.sign({ id: user.id }, process.env.TOKEN_SECRET);
+      await res.header("auth-token", token).send({ token: token, id: user.id });
+      // await res.sendStatus(200).send({ token: token, id: user.id });
     }
   }
 };

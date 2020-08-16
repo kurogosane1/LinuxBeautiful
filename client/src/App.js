@@ -14,6 +14,7 @@ import { Footer } from "./Footer/Footer";
 import Login from "./Components/User/Login";
 import Signup from "./Components/User/Signup";
 import Verify from "./Components/User/Verify";
+import Userid from "./Components/User/userid";
 
 function App() {
   return (
@@ -40,6 +41,9 @@ function App() {
         </Route>
         <Route path="/passwordverify">
           <Verify />
+        </Route>
+        <Route exact path="/user/:id">
+          <Userid />
         </Route>
       </Switch>
       <Footer className="footer" />

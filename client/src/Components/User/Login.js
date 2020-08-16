@@ -1,13 +1,25 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
+import axios from "axios";
 
 export default function Login(props) {
   const [user, setUser] = useState({});
+  let history = useHistory();
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
-  const loginAccess = (e) => {};
+  const loginAccess = (e) => {
+    e.preventDefault();
+    axios
+      .post("/Login", user)
+      .then((res) => {
+        console.log(res);
+        localStorage.setItem("token", res.data.token);
+        history.push(`/user/${res.data.id}`);
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div>
@@ -16,7 +28,7 @@ export default function Login(props) {
         <div>
           <input
             type="email"
-            name="Deepin-id"
+            name="email"
             placeholder="Deepin Id"
             onChange={handleChange}
           />
@@ -24,7 +36,7 @@ export default function Login(props) {
         <div>
           <input
             type="password"
-            name="Deepin-password"
+            name="password"
             placeholder="Password"
             onChange={handleChange}
           />
