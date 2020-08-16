@@ -15,6 +15,7 @@ import Login from "./Components/User/Login";
 import Signup from "./Components/User/Signup";
 import Verify from "./Components/User/Verify";
 import Userid from "./Components/User/userid";
+import Cart from "./Components/Cart/Cart";
 
 function App() {
   return (
@@ -44,6 +45,9 @@ function App() {
         </Route>
         <Route exact path="/user/:id">
           <Userid />
+        </Route>
+        <Route exact path="/cart">
+          <Cart />
         </Route>
       </Switch>
       <Footer className="footer" />

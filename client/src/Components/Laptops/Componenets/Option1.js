@@ -33,8 +33,13 @@ export default function Option1() {
     }
   };
 
-  const doThis = () => {
-    history.push("/Login", { ...laptop });
+  const doThis = async () => {
+    const Token = localStorage.getItem("token");
+    if (!Token) {
+      history.push("/Login", { ...laptop });
+    } else {
+      history.push("/Cart", { Token, ...laptop });
+    }
   };
 
   return (

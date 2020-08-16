@@ -3,7 +3,7 @@ import { useRouteMatch, useHistory } from "react-router-dom";
 
 export default function Userid() {
   const [hastoken, setToken] = useState(true);
-  let history = useHistory();
+  const history = useHistory();
   useEffect(() => {
     let token = localStorage.getItem("token");
 
@@ -14,7 +14,7 @@ export default function Userid() {
     } else {
       setToken(true);
     }
-  }, [hastoken]);
+  }, [hastoken,history]);
 
   let match = useRouteMatch();
   // console.log(match);

@@ -5,6 +5,8 @@ import VS from "../../../Assets/SVG/DesktopEnv.svg";
 export default function BuyNow() {
   let history = useHistory();
   let { url } = useRouteMatch();
+
+  
   const doThis = (e) => {
     history.push(`${url}/${e.target.value}`);
   };

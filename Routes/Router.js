@@ -21,6 +21,8 @@ router.get("/Signup", auth.signup_get);
 
 router.post("/Signup", auth.signup_post);
 
+router.post('/user/:id', (req, res) => { });
+
 router.get("/Products", (req, res) => {
   Products.findAll()
     .then((user) => {

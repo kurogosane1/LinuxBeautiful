@@ -1,3 +1,12 @@
+#root {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  justify-content: center;
+  text-align: center;
+  /* grid-template-columns: 1fr 4fr 1fr; */
+}
+
 .footer #footer {
   bottom: 0;
 }
