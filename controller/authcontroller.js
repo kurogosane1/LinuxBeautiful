@@ -10,22 +10,29 @@ module.exports.signup_get = (req, res) => {
 };
 
 module.exports.signup_post = async (req, res) => {
-  console.log(req.body.tel);
   // Hash password
   const salt = await bcrypt.genSalt(10);
   const hashPassword = await bcrypt.hash(req.body.password, salt);
 
-  Users.create({
-    firstName: req.body.firstname,
-    lastName: req.body.lastname,
-    country: req.body.country,
-    date: req.body.date,
-    tel: req.body.tel,
-    email: req.body.email,
-    password: hashPassword,
-  })
-    .then((submit) => res.send(submit))
-    .catch((err) => console.log(err));
+  // check if email exists
+  const emailExists = await Users.findOne({ where: { email: req.body.email } });
+  console.log(emailExists);
+
+  if (emailExists === null) {
+    Users.create({
+      firstName: req.body.firstname,
+      lastName: req.body.lastname,
+      country: req.body.country,
+      date: req.body.date,
+      tel: req.body.tel,
+      email: req.body.email,
+      password: hashPassword,
+    })
+      .then((submit) => res.send(submit))
+      .catch((err) => console.log(err));
+  } else {
+    return res.send("email already exists");
+  }
 };
 
 module.exports.login_get = (req, res) => {

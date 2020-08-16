@@ -14,7 +14,6 @@ export default function Login(props) {
     axios
       .post("/Login", user)
       .then((res) => {
-        console.log(res);
         localStorage.setItem("token", res.data.token);
         history.push(`/user/${res.data.id}`);
       })

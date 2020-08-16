@@ -1,9 +1,23 @@
-import React from "react";
-import { useRouteMatch } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useRouteMatch, useHistory } from "react-router-dom";
 
 export default function Userid() {
-    let match = useRouteMatch();
-    console.log(match);
+  const [hastoken, setToken] = useState(true);
+  let history = useHistory();
+  useEffect(() => {
+    let token = localStorage.getItem("token");
+
+    if (!token) {
+      console.log(token);
+      setToken(false);
+      history.push("/Login");
+    } else {
+      setToken(true);
+    }
+  }, [hastoken]);
+
+  let match = useRouteMatch();
+  // console.log(match);
   return (
     <div>
       <h2>This is the user details</h2>
