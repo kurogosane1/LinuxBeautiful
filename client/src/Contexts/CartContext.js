@@ -12,10 +12,11 @@ const CartContextProvider = (props) => {
   });
 
   const addCart = (data) => {
+    console.log(data);
     setCart({ ...cart, [data.name]: data.value });
   };
   return (
-    <CartContext.Provider value={{ cart, isLoggin, addCart: addCart }}>
+    <CartContext.Provider value={{ cart ,addCart}}>
       {props.children}
     </CartContext.Provider>
   );

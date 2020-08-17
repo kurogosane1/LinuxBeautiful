@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { CartContext } from "../../../Contexts/CartContext";
 import { useHistory } from "react-router-dom";
 import VS from "../../../Assets/SVG/DesktopEnv.svg";
 
 export default function Option1() {
   let history = useHistory();
+  const { cart, addCart } = useContext(CartContext);
+  console.log(cart);
 
   const [laptop, setLaptop] = useState({
     Processor: "Core i7 14 core 3.0 ghz",
@@ -35,10 +38,11 @@ export default function Option1() {
 
   const doThis = async () => {
     const Token = localStorage.getItem("token");
+    addCart(laptop);
     if (!Token) {
       history.push("/Login", { ...laptop });
     } else {
-      history.push("/Cart", { Token, ...laptop });
+      history.push("/Cart", { token: Token, ...laptop });
     }
   };
 

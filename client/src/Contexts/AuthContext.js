@@ -12,7 +12,8 @@ export default function AuthContextProvider(props) {
   };
 
   const userIdModify = (data) => {
-    setUserId({ ...userId, userId: data });
+    console.log(data);
+    setUserId({ userId: data });
   };
 
   return (
@@ -20,8 +21,8 @@ export default function AuthContextProvider(props) {
       value={{
         hasToken,
         userId,
-        addToken: addToken,
-        userIdModify: userIdModify,
+        addToken,
+        userIdModify,
       }}
     >
       {props.children}

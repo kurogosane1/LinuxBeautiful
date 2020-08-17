@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import axios from "axios";
 
-export default function Login(props) {
-  console.log(props);
+export default function Login() {
   const [user, setUser] = useState({});
   let history = useHistory();
 

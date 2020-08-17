@@ -22,41 +22,42 @@ import CartContextProvider from "./Contexts/CartContext";
 function App() {
   return (
     <AuthContextProvider>
-      <Router>
-        <Navbar />
-        <Switch>
-          <Route exact path="/">
-            <Main />
-          </Route>
-          <Route path="/Laptop">
-            <Laptop />
-          </Route>
-          <Route path="/Tablet">
-            <Tablet />
-          </Route>
-          <Route path="/AllinOne">
-            <InOne />
-          </Route>
-          <Route path="/Login">
-            <Login />
-          </Route>
-          <Route path="/signup">
-            <Signup />
-          </Route>
-          <Route path="/passwordverify">
-            <Verify />
-          </Route>
-          <Route exact path="/user/:id">
-            <Userid />
-          </Route>
-          <CartContextProvider>
+      <CartContextProvider>
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route exact path="/">
+              <Main />
+            </Route>
+            <Route path="/Laptop">
+              <Laptop />
+            </Route>
+            <Route path="/Tablet">
+              <Tablet />
+            </Route>
+            <Route path="/AllinOne">
+              <InOne />
+            </Route>
+            <Route path="/Login">
+              <Login />
+            </Route>
+            <Route path="/signup">
+              <Signup />
+            </Route>
+            <Route path="/passwordverify">
+              <Verify />
+            </Route>
+            <Route exact path="/user/:id">
+              <Userid />
+            </Route>
+
             <Route exact path="/cart">
               <Cart />
             </Route>
-          </CartContextProvider>
-        </Switch>
-        <Footer className="footer" />
-      </Router>
+          </Switch>
+          <Footer className="footer" />
+        </Router>
+      </CartContextProvider>
     </AuthContextProvider>
   );
 }
