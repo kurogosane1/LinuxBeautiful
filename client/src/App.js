@@ -16,42 +16,48 @@ import Signup from "./Components/User/Signup";
 import Verify from "./Components/User/Verify";
 import Userid from "./Components/User/userid";
 import Cart from "./Components/Cart/Cart";
+import AuthContextProvider from "./Contexts/AuthContext";
+import CartContextProvider from "./Contexts/CartContext";
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Switch>
-        <Route exact path="/">
-          <Main />
-        </Route>
-        <Route path="/Laptop">
-          <Laptop />
-        </Route>
-        <Route path="/Tablet">
-          <Tablet />
-        </Route>
-        <Route path="/AllinOne">
-          <InOne />
-        </Route>
-        <Route path="/Login">
-          <Login />
-        </Route>
-        <Route path="/signup">
-          <Signup />
-        </Route>
-        <Route path="/passwordverify">
-          <Verify />
-        </Route>
-        <Route exact path="/user/:id">
-          <Userid />
-        </Route>
-        <Route exact path="/cart">
-          <Cart />
-        </Route>
-      </Switch>
-      <Footer className="footer" />
-    </Router>
+    <AuthContextProvider>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route exact path="/">
+            <Main />
+          </Route>
+          <Route path="/Laptop">
+            <Laptop />
+          </Route>
+          <Route path="/Tablet">
+            <Tablet />
+          </Route>
+          <Route path="/AllinOne">
+            <InOne />
+          </Route>
+          <Route path="/Login">
+            <Login />
+          </Route>
+          <Route path="/signup">
+            <Signup />
+          </Route>
+          <Route path="/passwordverify">
+            <Verify />
+          </Route>
+          <Route exact path="/user/:id">
+            <Userid />
+          </Route>
+          <CartContextProvider>
+            <Route exact path="/cart">
+              <Cart />
+            </Route>
+          </CartContextProvider>
+        </Switch>
+        <Footer className="footer" />
+      </Router>
+    </AuthContextProvider>
   );
 }
 

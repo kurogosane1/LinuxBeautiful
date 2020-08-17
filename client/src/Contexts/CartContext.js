@@ -1,19 +1,24 @@
-import React, { Component, createContext } from "react";
+import React, { createContext, useState } from "react";
 
 export const CartContext = createContext();
 
-export default class CartContextProvider extends Component {
-  state = {
-    User_id: "",
-    isLoggedIn: false,
-    Cart: {},
-  };
+const CartContextProvider = (props) => {
+  const [isLoggin, setLoggedIn] = useState(false);
+  const [cart, setCart] = useState({
+    Processor: "",
+    RAM: "",
+    Storage: "",
+    GPU: "",
+  });
 
-  render() {
-    return (
-      <CartContext.Provider value={{ ...this.state }}>
-        {this.props.children}
-      </CartContext.Provider>
-    );
-  }
-}
+  const addCart = (data) => {
+    setCart({ ...cart, [data.name]: data.value });
+  };
+  return (
+    <CartContext.Provider value={{ cart, isLoggin, addCart: addCart }}>
+      {props.children}
+    </CartContext.Provider>
+  );
+};
+
+export default CartContextProvider;

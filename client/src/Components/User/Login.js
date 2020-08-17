@@ -3,6 +3,7 @@ import { NavLink, useHistory } from "react-router-dom";
 import axios from "axios";
 
 export default function Login(props) {
+  console.log(props);
   const [user, setUser] = useState({});
   let history = useHistory();
 
