@@ -3,20 +3,29 @@ import React, { createContext, useState } from "react";
 export const CartContext = createContext();
 
 const CartContextProvider = (props) => {
-  const [isLoggin, setLoggedIn] = useState(false);
-  const [cart, setCart] = useState({
-    Processor: "",
-    RAM: "",
-    Storage: "",
-    GPU: "",
-  });
+  const [cart, setCart] = useState([
+    {
+      Processor: "",
+      RAM: "",
+      Storage: "",
+      GPU: "",
+      type: "",
+    },
+  ]);
 
-  const addCart = (data) => {
+  const addCart = async (data) => {
     console.log(data);
-    setCart({ ...cart, [data.name]: data.value });
+    let newItem = {
+      Processor: data.Processor,
+      RAM: data.RAM,
+      Storage: data.Storage,
+      GPU: data.GPU,
+      type: data.type,
+    };
+    await setCart((cart) => [...cart, newItem]);
   };
   return (
-    <CartContext.Provider value={{ cart ,addCart}}>
+    <CartContext.Provider value={{ cart, addCart }}>
       {props.children}
     </CartContext.Provider>
   );

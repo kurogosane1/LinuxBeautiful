@@ -50,7 +50,6 @@ function App() {
             <Route exact path="/user/:id">
               <Userid />
             </Route>
-
             <Route exact path="/cart">
               <Cart />
             </Route>

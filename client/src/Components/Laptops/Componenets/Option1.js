@@ -5,14 +5,14 @@ import VS from "../../../Assets/SVG/DesktopEnv.svg";
 
 export default function Option1() {
   let history = useHistory();
-  const { cart, addCart } = useContext(CartContext);
-  console.log(cart);
+  const { addCart } = useContext(CartContext);
 
   const [laptop, setLaptop] = useState({
     Processor: "Core i7 14 core 3.0 ghz",
     RAM: "16gb 2333Mhz RAM",
     Storage: "1TB SSD",
     GPU: "Nvidia RTX 3050 with 8GB of GDDR8 memory",
+    type: "Laptop",
   });
 
   const handleClick = (e) => {
@@ -36,14 +36,10 @@ export default function Option1() {
     }
   };
 
-  const doThis = async () => {
-    const Token = localStorage.getItem("token");
-    addCart(laptop);
-    if (!Token) {
-      history.push("/Login", { ...laptop });
-    } else {
-      history.push("/Cart", { token: Token, ...laptop });
-    }
+  const doThis = async (e) => {
+    e.preventDefault();
+    await addCart(laptop);
+    history.push("/cart", { ...laptop });
   };
 
   return (
