@@ -12,6 +12,15 @@ const CartContextProvider = (props) => {
       type: "",
     },
   ]);
+  const [cartTotal, setTotal] = useState([
+    {
+      Processor: 0,
+      RAM: 0,
+      Storage: 0,
+      GPU: 0,
+      type: 0,
+    },
+  ]);
 
   const addCart = async (data) => {
     console.log(data);
@@ -24,8 +33,19 @@ const CartContextProvider = (props) => {
     };
     await setCart((cart) => [...cart, newItem]);
   };
+
+  const addTotal = async (data) => {
+    console.log(data);
+    let newTotal = {
+      Processor: data.Processor,
+      RAM: data.RAM,
+      Storage: data.Storage,
+      GPU: data.GPU,
+    };
+    await setTotal((total) => [...total, newTotal]);
+  };
   return (
-    <CartContext.Provider value={{ cart, addCart }}>
+    <CartContext.Provider value={{ cart, addCart, cartTotal, addTotal }}>
       {props.children}
     </CartContext.Provider>
   );

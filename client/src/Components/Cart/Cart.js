@@ -1,14 +1,22 @@
-import React, { useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../Contexts/AuthContext";
 import { CartContext } from "../../Contexts/CartContext";
 
 export default function Cart(props) {
   const { hasToken, userId, addToken, userIdModify } = useContext(AuthContext);
-  const { cart } = useContext(CartContext);
+  const { cart, cartTotal } = useContext(CartContext);
+  const [tempTotal, setTempTotal] = useState();
 
   useEffect(() => {
     console.log(cart.length);
   }, [cart]);
+
+  useEffect(() => {
+    let test = cartTotal
+      .map((item) => item.RAM + item.GPU + item.Processor + item.Storage)
+      .reduce((a, b) => a + b);
+    setTempTotal(test);
+  }, [cartTotal]);
 
   return (
     <div className="container">
@@ -37,10 +45,14 @@ export default function Cart(props) {
                 <span>{cart[1].GPU}</span>
               </li>
             </ul>
-            <div className="total">
-              <label>Total</label>
-              <span>$3000</span>
-            </div>
+            {tempTotal != null || tempTotal != 0 ? (
+              <div className="total">
+                <label>Total</label>
+                <span>{tempTotal}</span>
+              </div>
+            ) : (
+              ""
+            )}
           </>
         )}
       </div>

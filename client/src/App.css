@@ -1,3 +1,11 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  position: relative;
+  min-height: 100vh;
+}
 #root {
   display: grid;
   align-content: center;
@@ -5,10 +13,6 @@
   justify-content: center;
   text-align: center;
   /* grid-template-columns: 1fr 4fr 1fr; */
-}
-
-.footer #footer {
-  bottom: 0;
 }
 
 .Option-Img {
@@ -22,13 +26,13 @@
   justify-content: center;
   align-content: center;
   align-items: center;
-  grid-template-columns: 1fr 2fr 2fr 1fr;
+  grid-template-columns: 2fr 2fr;
   grid-template-rows: repeat(4, auto);
   grid-template-areas:
-    "Heading Heading Heading Heading"
-    "Option1 Option1 Option2 Option2"
-    "Option1 Option1 Option2 Option2"
-    "Option1 Option1 Option2 Option2";
+    "Heading Heading"
+    "Option1 Option2"
+    "Option1 Option2"
+    "Option1 Option2";
   grid-gap: 20px;
 }
 .Options-Heading {
@@ -72,6 +76,7 @@ input[type="radio"] {
 }
 .spec-list {
   list-style-type: none;
+  text-align: left;
 }
 .spec-options {
   cursor: pointer;
@@ -83,7 +88,7 @@ input[type="radio"] {
 }
 
 .opt-cont-1 {
-  width: 40%;
+  width: 100%;
   margin: auto;
   display: grid;
   /* align-items: center; */
@@ -97,14 +102,38 @@ input[type="radio"] {
   align-items: flex-start;
 }
 
-#opt-1-img {
-  top: 10px;
+#opt-1-img,
+.total-amount {
+  top: 2rem;
   margin-top: 2rem;
   position: sticky;
 }
+
+.total-amount {
+  margin-top: 2rem;
+}
+.total-amount {
+  top: 30rem;
+
+  font-size: 2rem;
+  padding: 20px;
+  position: sticky;
+}
+
 .opt-col-2 {
   grid-area: options;
   align-items: center;
+}
+#footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin-top: 2rem;
+  width: 100%;
+  background: rgb(49, 49, 49);
+  color: rgb(243, 234, 234);
+  text-align: center;
+  font-size: 1rem;
 }
 
 @media only screen and (max-width: 768px) {
