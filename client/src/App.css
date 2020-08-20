@@ -71,7 +71,7 @@ body {
 input[type="radio"] {
   width: 100%;
   visibility: hidden;
-  padding: 20px 50px;
+  /* padding: 20px 50px; */
   background-color: rgb(236, 243, 236);
 }
 .spec-list {
@@ -103,7 +103,8 @@ input[type="radio"] {
 }
 
 #opt-1-img,
-.total-amount {
+.total-amount,
+.opt2-image {
   top: 2rem;
   margin-top: 2rem;
   position: sticky;
@@ -134,6 +135,104 @@ input[type="radio"] {
   color: rgb(243, 234, 234);
   text-align: center;
   font-size: 1rem;
+}
+
+/* This is for option2 section */
+.opt2-cont {
+  margin-top:5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 2rem;
+
+  grid-template-areas:
+    "image options options"
+    "image options options"
+    "image options options";
+}
+
+.opt2-col-1 {
+  grid-area: image;
+  /* grid-column:1/2; */
+}
+.opt2-col-2 {
+  grid-area: options;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  /* grid-column:2/3; */
+}
+.opt2-Storage,
+.opt2-Processor,
+.opt2-RAM,
+.opt2-GPU {
+  display: flex;
+  flex-flow: column;
+  align-content: space-around;
+  top: 0;
+  padding: 5rem;
+  border: solid red;
+}
+.opt2-heading-options {
+  width: 100%;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: rgb(85, 85, 85) solid;
+  border-width: 0.1rem;
+  text-align: left;
+}
+
+.opt2-options {
+  align-content: space-around;
+}
+.spec-options-not-clicked {
+  list-style: none;
+  text-align: left;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.opt2-options li:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0px 43px 72px 3px rgba(166, 154, 166, 0.62);
+  -moz-box-shadow: 0px 43px 72px 3px rgba(166, 154, 166, 0.62);
+  box-shadow: 0px 43px 72px 3px rgba(166, 154, 166, 0.62);
+  z-index: 1;
+  transition: 150ms ease-in-out;
+}
+
+.spec-option-clicked {
+  cursor: pointer;
+  border: 0.3rem solid blue;
+  list-style: none;
+  text-align: left;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem;
+  -webkit-box-shadow: 0px 43px 72px 3px rgba(166, 154, 166, 0.62);
+  -moz-box-shadow: 0px 43px 72px 3px rgba(166, 154, 166, 0.62);
+  box-shadow: 0px 43px 72px 3px rgba(166, 154, 166, 0.62);
+  z-index: 1;
+  transition: 100ms ease-in-out;
+}
+
+.opt2-spec-list {
+  padding: 2rem;
+  margin: 1rem 0 1rem 0;
+}
+
+.opt2-spec-list ul li {
+  list-style: none;
+  padding: 1rem;
+  text-align: center;
 }
 
 @media only screen and (max-width: 768px) {
